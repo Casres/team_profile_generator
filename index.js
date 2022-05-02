@@ -132,5 +132,18 @@ function fillPosition() {
                 when: roles == 'Intern'
             }
         ])
+        .then(answers => {
+            if (roles == 'Manager') {
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                console.log(manager);
+                teamArr.push(manager);
+            } else if (roles == 'Engineer') {
+                const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                teamArr.push(engineer);
+            } else {
+                const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+                teamArr.push(intern);
+            }
+        })
     })
 };
