@@ -4,7 +4,8 @@
   "description": "A README generator",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "author": "Christian Casillas",
   "license": "ISC",
