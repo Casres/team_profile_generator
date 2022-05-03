@@ -50,40 +50,17 @@ const generateTeam = team => {
         `
     };
 
-    // const getRoleArr = [];
-
-    // // defining the getRole() return value for each employee 
-    // getRoleArr.push(team
-    //     .filter(employee => employee.getRole() === "Manager")
-    //     .map(manager => generateManager(manager))
-    //     // .join('')
-    // );
-
-    // getRoleArr.push(team
-    //     .filter(employee => employee.getRole() === "Engineer")
-    //     .map(engineer => generateEngineer(engineer))
-    //     // .join('')
-    // );
-
-    // getRoleArr.push(team
-    //     .filter(employee => employee.getRole() === "Intern")
-    //     .map(intern => generateIntern(intern))
-    //     // .join('')
-    // );
-
-    
-
     for (let i = 0; i < team.length; i++) {
         if (team[i].getRole() == 'Manager') {
-            testEmployee += generateManager(teamTestEL);
+            testEmployee += generateManager(team[i]);
         }
 
         if (team[i].getRole() == 'Engineer') {
-            testEmployee += generateEngineer(teamTestEL);
+            testEmployee += generateEngineer(team[i]);
         }
 
         if (team[i].getRole() == 'Intern') {
-            testEmployee += generateIntern(teamTestEL);
+            testEmployee += generateIntern(team[i]);
         }
     };
     return testEmployee;

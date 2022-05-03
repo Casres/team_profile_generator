@@ -169,6 +169,6 @@ function createHtml() {
     if (err) {
       console.log(err);
     }
-    console.log("File successfully made!", );
+    console.log("File successfully made!");
   });
 }
