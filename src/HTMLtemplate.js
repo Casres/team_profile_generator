@@ -1,60 +1,99 @@
 
-
-
+const Employee = require('../lib/Employee');
+const Manager = require('../lib/Manager');
+var testEmployee = '';
 
 const generateTeam = team => {
     const generateManager = (manager) => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>Name</h2>
-                <h3> <i class="fa-solid fa-briefcase"></i> Manager </h3>
+                <h2>${manager.getName()}</h2>
+                <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: </li>
-                <li class="list-group-item">Email: </li>
-                <li class="list-group-item">Office Number: </li>
+                <li class="list-group-item">ID:${manager.getId()} </li>
+                <li class="list-group-item">Email: ${manager.getEmail()}</li>
+                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
             </ul>
         </div>
         `
     };
-
     const generateEngineer = (engineer) => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>Name</h2>
-                <h3> <i class="fa-solid fa-calculator"></i> Engineer </h3>
+                <h2>${engineer.getName()}</h2>
+                <h3> <i class="fa-solid fa-calculator"></i> ${engineer.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: </li>
-                <li class="list-group-item">Email: </li>
-                <li class="list-group-item">GitHub: </li>
+                <li class="list-group-item">ID: ${engineer.getId()}</li>
+                <li class="list-group-item">Email: ${engineer.getEmail()}</li>
+                <li class="list-group-item">GitHub: ${engineer.getGitHub()}</li>
             </ul>
         </div>
         `
     };
-
     const generateIntern = (intern) => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>Name</h2>
-                <h3> <i class="fa-solid fa-mug-hot"></i> Intern</h3>
+                <h2>${intern.getName()}</h2>
+                <h3> <i class="fa-solid fa-mug-hot"></i> ${intern.getRole()}</h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: </li>
-                <li class="list-group-item">Email: </li>
-                <li class="list-group-item">School: </li>
+                <li class="list-group-item">ID: ${intern.getId()}</li>
+                <li class="list-group-item">Email: ${intern.getEmail()}</li>
+                <li class="list-group-item">School: ${intern.getSchool()}</li>
             </ul>
         </div>
         `
     };
-}
+
+    // const getRoleArr = [];
+
+    // // defining the getRole() return value for each employee 
+    // getRoleArr.push(team
+    //     .filter(employee => employee.getRole() === "Manager")
+    //     .map(manager => generateManager(manager))
+    //     // .join('')
+    // );
+
+    // getRoleArr.push(team
+    //     .filter(employee => employee.getRole() === "Engineer")
+    //     .map(engineer => generateEngineer(engineer))
+    //     // .join('')
+    // );
+
+    // getRoleArr.push(team
+    //     .filter(employee => employee.getRole() === "Intern")
+    //     .map(intern => generateIntern(intern))
+    //     // .join('')
+    // );
+
+    
+
+    for (let i = 0; i < team.length; i++) {
+        if (team[i].getRole() == 'Manager') {
+            testEmployee += generateManager(teamTestEL);
+        }
+
+        if (team[i].getRole() == 'Engineer') {
+            testEmployee += generateEngineer(teamTestEL);
+        }
+
+        if (team[i].getRole() == 'Intern') {
+            testEmployee += generateIntern(teamTestEL);
+        }
+    };
+    return testEmployee;
+};
+
+
 
 
 module.exports = team => {
-    ` 
+    return ` 
         <!DOCTYPE html>
         <html lang="en">
 
@@ -81,3 +120,8 @@ module.exports = team => {
     `
 }
 
+
+
+const gif = new Manager ('jack', 'manager', '123', '458')
+const employeeArr = [gif];
+console.log('Testing if team works -> ', gif.getName());
