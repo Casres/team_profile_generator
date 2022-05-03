@@ -8,13 +8,13 @@ const generateTeam = team => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>${manager.getName()}</h2>
+                <h2> ${manager.getName()} </h2>
                 <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID:${manager.getId()} </li>
-                <li class="list-group-item">Email: ${manager.getEmail()}</li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
+                <li class="list-group-item">ID: ${manager.getId()} </li>
+                <li class="list-group-item">Email: ${manager.getEmail()} </li>
+                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
             </ul>
         </div>
         `
@@ -23,13 +23,13 @@ const generateTeam = team => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>${engineer.getName()}</h2>
+                <h2> ${engineer.getName()} </h2>
                 <h3> <i class="fa-solid fa-calculator"></i> ${engineer.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${engineer.getId()}</li>
-                <li class="list-group-item">Email: ${engineer.getEmail()}</li>
-                <li class="list-group-item">GitHub: ${engineer.getGitHub()}</li>
+                <li class="list-group-item">ID: ${engineer.getId()} </li>
+                <li class="list-group-item">Email: ${engineer.getEmail()} </li>
+                <li class="list-group-item">GitHub: ${engineer.getGitHub()} </li>
             </ul>
         </div>
         `
@@ -38,13 +38,13 @@ const generateTeam = team => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2>${intern.getName()}</h2>
-                <h3> <i class="fa-solid fa-mug-hot"></i> ${intern.getRole()}</h3>
+                <h2> ${intern.getName()} </h2>
+                <h3> <i class="fa-solid fa-mug-hot"></i> ${intern.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${intern.getId()}</li>
-                <li class="list-group-item">Email: ${intern.getEmail()}</li>
-                <li class="list-group-item">School: ${intern.getSchool()}</li>
+                <li class="list-group-item">ID: ${intern.getId()} </li>
+                <li class="list-group-item">Email: ${intern.getEmail()} </li>
+                <li class="list-group-item">School: ${intern.getSchool()} </li>
             </ul>
         </div>
         `
@@ -97,8 +97,3 @@ module.exports = team => {
     `
 }
 
-
-
-const gif = new Manager ('jack', 'manager', '123', '458')
-const employeeArr = [gif];
-console.log('Testing if team works -> ', gif.getName());
