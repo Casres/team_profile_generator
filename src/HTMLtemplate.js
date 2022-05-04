@@ -9,27 +9,23 @@
 
 var testEmployee = "";
 
-const generateManager = (manager) => {
-    console.log('test 3 -> ', manager);
-  return `
-    <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                <h2> <i class="fa-solid fa-briefcase"></i> ${manager.name} </h2>
-                <h3> <i class="fa-solid fa-briefcase"></i> Manager </h3>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${manager.id} </li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a> </li>
-                <li class="list-group-item">Office Number: ${manager.officeNumber}  </li>
-            </ul>
-        </div>
-    `;
-};
-
-// testEmployee += generateManager();
+// const generateManager = (manager) => {
+//   return `
+//     <div class="card" style="width: 18rem;">
+//             <div class="card-header">
+//                 <h2> <i class="fa-solid fa-briefcase"></i> ${manager.name} </h2>
+//                 <h3> <i class="fa-solid fa-briefcase"></i> Manager </h3>
+//             </div>
+//             <ul class="list-group list-group-flush">
+//                 <li class="list-group-item">ID: ${manager.id} </li>
+//                 <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a> </li>
+//                 <li class="list-group-item">Office Number: ${manager.officeNumber}  </li>
+//             </ul>
+//         </div>
+//     `;
+// };
 
 const generateTeam = (team) => {
-    console.log('testing 5 -> ', team);
   const generateAssistantManager = (AssistantManager) => {
     return `
         <div class="card" style="width: 18rem;">
@@ -91,8 +87,9 @@ const generateTeam = (team) => {
   }
   return testEmployee;
 };
-
-module.exports = (manager, team) => {
+// manager, <- this goes before team, below
+// ${generateManager(manager)} <- this goes above the generateTeam, below
+module.exports = (team) => {
   return ` 
         <!DOCTYPE html>
         <html lang="en">
@@ -103,14 +100,14 @@ module.exports = (manager, team) => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" />
             <link rel="stylesheet" href="./style.css">
-            <title>Document</title>
+            <title>Employees</title>
         </head>
 
         <body>
             <h1 id="title" class="d-flex justify-content-center mt-0">My Team</h1>
 
             <div class="row d-flex justify-content-around ">
-                ${generateManager(manager)}
+                
                 ${generateTeam(team)}
             </div>
 
