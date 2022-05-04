@@ -5,6 +5,8 @@
 
 
 
+
+
 const inquirer = require("inquirer");
 const fs = require("fs");
 const HTMLTemplateLiteral = require("./src/HTMLtemplate");
@@ -12,10 +14,81 @@ const HTMLTemplateLiteral = require("./src/HTMLtemplate");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const ManagerAssistant = require("./lib/AssistantManager");
 
+const teamManagerArr = [];
 const teamArr = [];
 
-init();
+startApp();
+
+function startApp() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "ManagerName",
+        message: "What is the managers name?",
+        validate: (managerNameInput) => {
+          if (managerNameInput) {
+            return true;
+          } else {
+            console.log("Please enter managers name");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "ManagerId",
+        message: "What is the Managers ID #?",
+        validate: (managerIdInput) => {
+          if (managerIdInput) {
+            return true;
+          } else {
+            console.log("Please enter the managers ID #.");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "ManagerEmail",
+        message: "What is the Managers email?",
+        validate: (managerEmailInput) => {
+          if (managerEmailInput) {
+            return true;
+          } else {
+            console.log("Please enter the managers email.");
+            return false;
+          }
+        },
+      },
+      {
+        type: "input",
+        name: "ManagerOfficeNumber",
+        message: "What is the Managers office number?",
+        validate: (managerOfficeNumberInput) => {
+          if (managerOfficeNumberInput) {
+            return true;
+          } else {
+            console.log("Please enter the managers office number.");
+            return false;
+          }
+        },
+      },
+    ])
+    .then((managers) => {
+      const zebra = new Manager(
+        managers.name,
+        managers.id,
+        managers.email,
+        managers.officeNumber
+      );
+      console.log(zebra);
+      teamManagerArr.push(zebra);
+    //   init();
+    });
+}
 
 function init() {
   inquirer
@@ -38,7 +111,7 @@ function fillPosition() {
         type: "list",
         name: "roles",
         message: "What job would you like to fill?",
-        choices: ["Manager", "Engineer", "Intern"],
+        choices: ["Manager Assistant", "Engineer", "Intern"],
       },
     ])
     // asking the employee constructor questions to the user
@@ -99,7 +172,7 @@ function fillPosition() {
                 return false;
               }
             },
-            when: roles == "Manager",
+            when: roles == "Manager Assistant",
           },
 
           {
@@ -133,15 +206,15 @@ function fillPosition() {
           },
         ])
         .then((answers) => {
-          if (roles == "Manager") {
-            const manager = new Manager(
+          if (roles == "Manager Assistant") {
+            const managerA = new ManagerAssistant(
               answers.name,
               answers.id,
               answers.email,
               answers.officeNumber
             );
-            console.log(manager);
-            teamArr.push(manager);
+            console.log(managerA);
+            teamArr.push(managerA);
           } else if (roles == "Engineer") {
             const engineer = new Engineer(
               answers.name,

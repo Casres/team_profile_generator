@@ -1,20 +1,43 @@
 
-const Employee = require('../lib/Employee');
-const Manager = require('../lib/Manager');
+
+
+
+
+
+// const Employee = require('../lib/Employee');
+const AssistantManager = require('../lib/AssistantManager');
 var testEmployee = '';
 
+// const generateManager = (manager) => {
+//     return `
+//     <div class="card" style="width: 18rem;">
+//             <div class="card-header">
+//                 <h2> ${manager.getName()} </h2>
+//                 <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
+//             </div>
+//             <ul class="list-group list-group-flush">
+//                 <li class="list-group-item">ID: ${manager.getId()} </li>
+//                 <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
+//                 <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
+//             </ul>
+//         </div>
+//     `
+// };
+
+// testEmployee += generateManager();
+
 const generateTeam = team => {
-    const generateManager = (manager) => {
+    const generateAssistantManager = (AssistantManager) => {
         return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2> ${manager.getName()} </h2>
-                <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
+                <h2> ${AssistantManager.getName()} </h2>
+                <h3> <i class="fa-solid fa-briefcase"></i> ${AssistantManager.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${manager.getId()} </li>
-                <li class="list-group-item">Email: ${manager.getEmail()} </li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
+                <li class="list-group-item">ID: ${AssistantManager.getId()} </li>
+                <li class="list-group-item">Email: <a href="mailto:${AssistantManager.getEmail()}">${AssistantManager.getEmail()}</a> </li>
+                <li class="list-group-item">Office Number: ${AssistantManager.getOfficeNumber()}  </li>
             </ul>
         </div>
         `
@@ -28,8 +51,8 @@ const generateTeam = team => {
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.getId()} </li>
-                <li class="list-group-item">Email: ${engineer.getEmail()} </li>
-                <li class="list-group-item">GitHub: ${engineer.getGitHub()} </li>
+                <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a> </li>
+                <li class="list-group-item">GitHub: <a href="www/github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a> </li>
             </ul>
         </div>
         `
@@ -43,7 +66,7 @@ const generateTeam = team => {
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.getId()} </li>
-                <li class="list-group-item">Email: ${intern.getEmail()} </li>
+                <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a> </li>
                 <li class="list-group-item">School: ${intern.getSchool()} </li>
             </ul>
         </div>
@@ -51,8 +74,8 @@ const generateTeam = team => {
     };
 
     for (let i = 0; i < team.length; i++) {
-        if (team[i].getRole() == 'Manager') {
-            testEmployee += generateManager(team[i]);
+        if (team[i].getRole() == 'Manager Assistant') {
+            testEmployee += generateAssistantManager(team[i]);
         }
 
         if (team[i].getRole() == 'Engineer') {
@@ -87,6 +110,7 @@ module.exports = team => {
             <h1 id="title" class="d-flex justify-content-center mt-0">My Team</h1>
 
             <div class="row d-flex justify-content-around ">
+                ${generateManager()}
                 ${generateTeam(team)}
             </div>
 
