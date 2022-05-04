@@ -22,6 +22,14 @@ This is a Node.js command-line application that takes in information about emplo
 ## **License**
 This project is licensed under: ISC
 
+https://user-images.githubusercontent.com/87106988/166837398-ddccb193-fdea-4f7a-817f-434d71a07967.mp4
+
+
+
+https://user-images.githubusercontent.com/87106988/166837356-375c18ff-36b7-471a-bc3a-5d269ddd2038.mp4
+
+
+
 ## **Usage**
 To sharpen skills on running tests in your code to ensure that it works and is reusable and won't break.
 
