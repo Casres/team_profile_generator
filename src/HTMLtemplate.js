@@ -5,26 +5,26 @@
 
 
 // const Employee = require('../lib/Employee');
-const AssistantManager = require('../lib/AssistantManager');
+// const AssistantManager = require('../lib/AssistantManager');
 var testEmployee = '';
 
-// const generateManager = (manager) => {
-//     return `
-//     <div class="card" style="width: 18rem;">
-//             <div class="card-header">
-//                 <h2> ${manager.getName()} </h2>
-//                 <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
-//             </div>
-//             <ul class="list-group list-group-flush">
-//                 <li class="list-group-item">ID: ${manager.getId()} </li>
-//                 <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
-//                 <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
-//             </ul>
-//         </div>
-//     `
-// };
+const generateManager = manager => {
+    return `
+    <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <h2> ${manager.getName()} </h2>
+                <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${manager.getId()} </li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
+                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
+            </ul>
+        </div>
+    `
+};
 
-// testEmployee += generateManager();
+testEmployee += generateManager();
 
 const generateTeam = team => {
     const generateAssistantManager = (AssistantManager) => {
@@ -89,9 +89,6 @@ const generateTeam = team => {
     return testEmployee;
 };
 
-
-
-
 module.exports = team => {
     return ` 
         <!DOCTYPE html>
@@ -110,7 +107,7 @@ module.exports = team => {
             <h1 id="title" class="d-flex justify-content-center mt-0">My Team</h1>
 
             <div class="row d-flex justify-content-around ">
-                ${generateManager()}
+                ${generateManager(manager)}
                 ${generateTeam(team)}
             </div>
 

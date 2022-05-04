@@ -78,15 +78,16 @@ function startApp() {
       },
     ])
     .then((managers) => {
-      const zebra = new Manager(
-        managers.name,
-        managers.id,
-        managers.email,
-        managers.officeNumber
+      const manager = new Manager(
+        managers.ManagerName,
+        managers.ManagerId,
+        managers.ManagerEmail,
+        managers.ManagerOfficeNumber
       );
-      console.log(zebra);
-      teamManagerArr.push(zebra);
-    //   init();
+      console.log('log 1', manager);
+      teamManagerArr.push(manager);
+      console.log('log 2', teamManagerArr);
+      init();
     });
 }
 
@@ -238,7 +239,7 @@ function fillPosition() {
 }
 
 function createHtml() {
-  fs.writeFile("./dist/team.html", HTMLTemplateLiteral(teamArr), (err) => {
+  fs.writeFile("./dist/team.html", HTMLTemplateLiteral(teamArr, teamManagerArr), (err) => {
     if (err) {
       console.log(err);
     }
