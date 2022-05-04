@@ -10,16 +10,17 @@
 var testEmployee = "";
 
 const generateManager = (manager) => {
+    console.log('test 3 -> ', manager);
   return `
     <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2> ${manager.getName()} </h2>
-                <h3> <i class="fa-solid fa-briefcase"></i> ${manager.getRole()} </h3>
+                <h2> <i class="fa-solid fa-briefcase"></i> ${manager.name} </h2>
+                <h3> <i class="fa-solid fa-briefcase"></i> Manager </h3>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${manager.getId()} </li>
-                <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a> </li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
+                <li class="list-group-item">ID: ${manager.id} </li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a> </li>
+                <li class="list-group-item">Office Number: ${manager.officeNumber}  </li>
             </ul>
         </div>
     `;
@@ -28,11 +29,12 @@ const generateManager = (manager) => {
 // testEmployee += generateManager();
 
 const generateTeam = (team) => {
+    console.log('testing 5 -> ', team);
   const generateAssistantManager = (AssistantManager) => {
     return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
-                <h2> ${AssistantManager.getName()} </h2>
+                <h2> ${AssistantManager.name} </h2>
                 <h3> <i class="fa-solid fa-briefcase"></i> ${AssistantManager.getRole()} </h3>
             </div>
             <ul class="list-group list-group-flush">
