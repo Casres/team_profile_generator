@@ -78,14 +78,14 @@ function startApp() {
       },
     ])
     .then((managers) => {
-      const zebra = new Manager(
+      const manager = new Manager(
         managers.name,
         managers.id,
         managers.email,
         managers.officeNumber
       );
-      console.log(zebra);
-      teamManagerArr.push(zebra);
+      console.log(managers);
+      teamManagerArr.push(manager);
     //   init();
     });
 }
