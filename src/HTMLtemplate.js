@@ -4,12 +4,13 @@
 
 
 
-// const Employee = require('../lib/Employee');
-// const AssistantManager = require('../lib/AssistantManager');
-var testEmployee = '';
 
-const generateManager = manager => {
-    return `
+
+
+var testEmployee = "";
+
+const generateManager = (manager) => {
+  return `
     <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h2> ${manager.getName()} </h2>
@@ -21,14 +22,14 @@ const generateManager = manager => {
                 <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}  </li>
             </ul>
         </div>
-    `
+    `;
 };
 
-testEmployee += generateManager();
+// testEmployee += generateManager();
 
-const generateTeam = team => {
-    const generateAssistantManager = (AssistantManager) => {
-        return `
+const generateTeam = (team) => {
+  const generateAssistantManager = (AssistantManager) => {
+    return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h2> ${AssistantManager.getName()} </h2>
@@ -40,10 +41,10 @@ const generateTeam = team => {
                 <li class="list-group-item">Office Number: ${AssistantManager.getOfficeNumber()}  </li>
             </ul>
         </div>
-        `
-    };
-    const generateEngineer = (engineer) => {
-        return `
+        `;
+  };
+  const generateEngineer = (engineer) => {
+    return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h2> ${engineer.getName()} </h2>
@@ -55,10 +56,10 @@ const generateTeam = team => {
                 <li class="list-group-item">GitHub: <a href="www/github.com/${engineer.getGitHub()}">${engineer.getGitHub()}</a> </li>
             </ul>
         </div>
-        `
-    };
-    const generateIntern = (intern) => {
-        return `
+        `;
+  };
+  const generateIntern = (intern) => {
+    return `
         <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h2> ${intern.getName()} </h2>
@@ -70,27 +71,27 @@ const generateTeam = team => {
                 <li class="list-group-item">School: ${intern.getSchool()} </li>
             </ul>
         </div>
-        `
-    };
+        `;
+  };
 
-    for (let i = 0; i < team.length; i++) {
-        if (team[i].getRole() == 'Manager Assistant') {
-            testEmployee += generateAssistantManager(team[i]);
-        }
+  for (let i = 0; i < team.length; i++) {
+    if (team[i].getRole() == "Manager Assistant") {
+      testEmployee += generateAssistantManager(team[i]);
+    }
 
-        if (team[i].getRole() == 'Engineer') {
-            testEmployee += generateEngineer(team[i]);
-        }
+    if (team[i].getRole() == "Engineer") {
+      testEmployee += generateEngineer(team[i]);
+    }
 
-        if (team[i].getRole() == 'Intern') {
-            testEmployee += generateIntern(team[i]);
-        }
-    };
-    return testEmployee;
+    if (team[i].getRole() == "Intern") {
+      testEmployee += generateIntern(team[i]);
+    }
+  }
+  return testEmployee;
 };
 
-module.exports = team => {
-    return ` 
+module.exports = (manager, team) => {
+  return ` 
         <!DOCTYPE html>
         <html lang="en">
 
@@ -115,6 +116,5 @@ module.exports = team => {
         </body>
 
         </html>
-    `
-}
-
+    `;
+};

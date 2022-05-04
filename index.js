@@ -239,7 +239,7 @@ function fillPosition() {
 }
 
 function createHtml() {
-  fs.writeFile("./dist/team.html", HTMLTemplateLiteral(teamArr, teamManagerArr), (err) => {
+  fs.writeFile("./dist/team.html", HTMLTemplateLiteral(teamManagerArr, teamArr), (err) => {
     if (err) {
       console.log(err);
     }
